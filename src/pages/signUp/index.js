@@ -1,74 +1,84 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
+import { signUp } from '../../services/signUpApi';
 
 export default function SignUp() {
-
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
-  const [signUpForm, setSignUpForm] = useState({});
+  const navigate = useNavigate();
+
+  const signUpForm = {
+    username,
+    email,
+    password,
+    passwordConfirmation
+  }
 
   function handleUsername(evt) {
     evt.preventDefault();
 
-    console.log(evt.target.value);
     setUsername(evt.target.value);
   }
 
   function handleEmail(evt) {
     evt.preventDefault();
 
-    console.log(evt.target.value);
     setEmail(evt.target.value);
   }
 
   function handlePassword(evt) {
     evt.preventDefault();
 
-    console.log(evt.target.value);
     setPassword(evt.target.value);
   }
 
   function handlePasswordConfirmation(evt) {
     evt.preventDefault();
 
-    console.log(evt.target.value);
     setPasswordConfirmation(evt.target.value);
   }
 
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    setSignUpForm({
-      username,
-      email,
-      password,
-      passwordConfirmation
-    })
+
+    try {
+      const userData = await signUp(signUpForm);
+      console.log(userData);
+      navigate('/log-in')
+    } catch (error) {
+      console.log(error.response)
+    }
   }
 
   return (
     <FormContainer>
-        <FormFont>SIGN UP</FormFont>
-        <InputField>
-          <input type='text' placeholder='username' onChange={(evt) => handleUsername(evt)} />
-        </InputField>
-        <InputField>
-          <input type='email' placeholder='email'  onChange={(evt) => handleEmail(evt)} />
-        </InputField>
-        <InputField>
-          <input type='password' placeholder='password'  onChange={(evt) => handlePassword(evt)} />
-        </InputField>
-        <InputField>
-          <input type='password' placeholder='password confirmation'  onChange={(evt) => handlePasswordConfirmation(evt)} />
-        </InputField>
-        <SubmitButton onClick={(evt) => handleSubmit(evt)} >SUBMIT</SubmitButton>
+      <FormFont>SIGN UP</FormFont>
+      <InputField>
+        <input type='text' placeholder='username' onChange={(evt) => handleUsername(evt)} />
+      </InputField>
+      <InputField>
+        <input type='email' placeholder='email' onChange={(evt) => handleEmail(evt)} />
+      </InputField>
+      <InputField>
+        <input type='password' placeholder='password' onChange={(evt) => handlePassword(evt)} />
+      </InputField>
+      <InputField>
+        <input type='password' placeholder='password confirmation' onChange={(evt) => handlePasswordConfirmation(evt)} />
+      </InputField>
+      <SubmitButton onClick={(evt) => handleSubmit(evt)} >SUBMIT</SubmitButton>
+      <FormLink to='/log-in'>
+        Already have an account? Log-in now!
+      </FormLink>
     </FormContainer>
   )
 }
 
-const FormContainer = styled.form`
+
+export const FormContainer = styled.form`
   height: 30em;
   width: 24em;
   padding: 2em;
@@ -84,7 +94,7 @@ const FormContainer = styled.form`
   border-radius: 1em;
 `
 
-const FormFont = styled.p`
+export const FormFont = styled.span`
   font-size: 36px;
 `
 
@@ -108,7 +118,7 @@ const InputField = styled.div`
   }
 `
 
-const SubmitButton = styled.button`
+export const SubmitButton = styled.button`
   width: 90%;
   height: 3.6em;
 
@@ -117,3 +127,9 @@ const SubmitButton = styled.button`
   outline-offset: -4px;
   border-radius: 6px;
 `;
+
+export const FormLink = styled(Link)`
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+`

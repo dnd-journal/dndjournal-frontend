@@ -9,8 +9,8 @@ function App() {
       <Router>
         <GlobalStyle/>
         <Routes>
-          <Route path='/' element={<SignUp />} />
-          <Route path='/login' element={<LogIn/>} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/log-in' element={<LogIn/>} />
         </Routes>
       </Router>
     </>
