@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
 	height: 100vh;
-	background-color: lightgrey;
+	background-color: #f7f5f5;
 	display: flex;
 	justify-content: center;
 	align-items: center;

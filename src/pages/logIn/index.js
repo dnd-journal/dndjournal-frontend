@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import UserContext from '../../contexts/UserContext';
 import logIn from '../../services/logInApi';
 import { FormContainer, FormFont, FormLink, SubmitButton } from '../signUp';
 
 export default function LogIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setUserData } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -32,7 +34,7 @@ export default function LogIn() {
 
     try {
       const userData = await logIn(loginForm);
-      console.log(userData);
+      setUserData(userData);
       navigate('/sign-up')
     } catch (error) {
       console.log(error.response)
@@ -77,7 +79,7 @@ const InputField = styled.div`
     width: 100%;
     height: 3.6em;
     padding: 8px;
-    border: none;
+    border: solid 2px;
     border-radius: 6px;
   }
 
