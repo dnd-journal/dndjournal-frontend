@@ -8,14 +8,14 @@ export const GlobalStyle = createGlobalStyle`
 
 *{
 	box-sizing: border-box;
+	outline: solid red;
 }
 
 body {
-	height: 100vh;
 	background-color: #f7f5f5;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
 }
 
 html, div, span, applet, object, iframe,

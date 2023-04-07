@@ -35,9 +35,9 @@ export default function LogIn() {
     try {
       const userData = await logIn(loginForm);
       setUserData(userData);
-      navigate('/sign-up')
+      navigate('/')
     } catch (error) {
-      console.log(error.response)
+      console.log(error)
     }
   }
 
