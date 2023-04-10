@@ -2,6 +2,12 @@ import styled from 'styled-components';
 import PersonalInfo from '../../components/personalInfo/personalInfo';
 import HardSkills from '../../components/skills/hardSkills';
 import AbilitiesAndInventory from '../../components/Abilities and Inventory';
+import SoftSkills from '../../components/skills/softSkills';
+import Journal from '../../components/Journal';
+import Level from '../../components/Description and Classes/level';
+import Description from '../../components/Description and Classes/description';
+import Classes from '../../components/Description and Classes/classes';
+import Proficiencies from '../../components/Description and Classes/proficiencies';
 
 export default function CharacterSheet() {
   return (
@@ -11,15 +17,15 @@ export default function CharacterSheet() {
         <AbilitiesAndInventory />
       </AbilitiesAndInfoSection>
       <DescriptionAndClassesSection>
-        <div>abcd</div>
-        <div>abcd</div>
-        <div>abcd</div>
-        <div>abcd</div>
+        <Level/>
+        <Description/>
+        <Classes/>
+        <Proficiencies/>
       </DescriptionAndClassesSection>
       <SkillsSection>
         <HardSkills />
-        <HardSkills />
-        <HardSkills />
+        <SoftSkills />
+        <Journal />
       </SkillsSection>
     </CharacterSheetLayout>
   )
@@ -42,9 +48,11 @@ const SkillsSection = styled.div`
 const AbilitiesAndInfoSection = styled.div`
   display: grid;
   grid-template-rows: 1fr 6fr;
+  gap: 0.5em;
 `;
 
 const DescriptionAndClassesSection = styled.div`
   display: grid;
   grid-template-rows: 1fr 2fr 4fr 4fr;
+  gap: 0.5em;
 `;

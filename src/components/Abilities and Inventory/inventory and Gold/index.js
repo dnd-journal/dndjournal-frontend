@@ -14,4 +14,5 @@ export default function InventoryAndGold(){
 const InventoryAndGoldTemplate = styled.div`
   display: grid;
   grid-template-rows: 1fr 4fr;
+  gap: 0.5em;
 `

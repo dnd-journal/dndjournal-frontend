@@ -14,5 +14,5 @@ export default function AbilitiesAndInventory(){
 const AbilitiesAndInventoryLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 0.5rem;
+  gap: 0.5em;
 `
