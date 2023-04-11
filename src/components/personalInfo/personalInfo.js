@@ -58,6 +58,6 @@ const NameContainer = styled.div`
 `
 
 const Icon = styled(BsFillPersonFill)`
-  font-size: 6em;
+  font-size: 4em;
   margin: 0;
 `

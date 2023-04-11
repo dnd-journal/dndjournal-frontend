@@ -4,7 +4,8 @@ export default function Abilities(){
   return (
     <AbilitiesContainer>
       <AbilityContainer>
-      
+        COM
+        <p>10</p>
       </AbilityContainer>
     </AbilitiesContainer>
   )
@@ -16,7 +17,7 @@ const AbilitiesContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  padding: 4%;
+  padding: 10%;
   border: solid 2px black;
   outline: solid 1px black;
   outline-offset: -0.3em;
@@ -24,15 +25,22 @@ const AbilitiesContainer = styled.div`
 `;
 
 const AbilityContainer = styled.div`
-  padding: 4%;
+  width: 4em;
+  height: 4em;
+  padding: 10%;
   border: solid 2px black;
   outline: solid 1px black;
   outline-offset: -0.3em;
   border-radius: 1em;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  position: relative;
+  /* position: relative; */
+
+  >p{
+    font-weight: 700;
+  }
 `;

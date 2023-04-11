@@ -55,4 +55,5 @@ const DescriptionAndClassesSection = styled.div`
   display: grid;
   grid-template-rows: 1fr 2fr 4fr 4fr;
   gap: 0.5em;
+  margin-right: 3em;
 `;
